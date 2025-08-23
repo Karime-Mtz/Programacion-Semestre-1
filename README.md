@@ -13,34 +13,38 @@ Creo que es interesante porque yo hice taekwondo durante 10 años entonces es un
 proceso que viví tantas veces ser automatizado.
 
 
-categoria_mujer = [ ]
-categoria_hombre = [ ]
-capacidad = 10
+E0 información sobre el competidor (nombre, sexo, peso)
 
+x = 0
+i = 0
+j = 0
 
-Mientras capacidad < 10
-  E0 (nombre, sexo, peso)
-  Si sexo == "mujer"
+Crear lista categoria_mujer
+Crear lista categoría_hombre
+
+Definir capacidad de competidores
+Capacidad = 10
+
+Mientras x sea menor que capacidad
+ 
+  Si sexo = mujer
     agregar (nombre, peso) a categoria_mujer
-  Else agregar (nombre, peso) a categoria_hombre
+  Sino agregar (nombre, peso) a categoria_hombre
 
-capacidad = capacidad + 1
+x = x +1
 
 Ordenar categoria_mujer(de menor a mayor)
 Ordenar categoria_hombre(de menor a mayor)
 
-m = (longitud de categoria_mujer)
-h = (longitud de categoria_hombre)
+m = longitud de lista categoria_mujer
+h = longitud de lista categoria_hombre
 
-i = 0
-j = 0
+Mientras i sea menor o igual que m
+resultados_mujer = categoria_mujer[i], categoria_mujer[i+1]
+i = i+2
 
-Salida Final:
+Mientras j sea menor o igual que h
+resultados_hombre = categoria_hombre[j], categoria_hombre[j+1]
+j = j+2
 
-mientras i <= m
-print( categoria_mujer[i], categoria_mujer[i+1])
-i = i + 2
-
-mientras j <= m
-print( categoria_mujer[j], categoria_mujer[j+1])
-j = j + 2
+EF (resultados_mujer, resultados_hombre)
