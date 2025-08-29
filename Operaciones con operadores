@@ -3,8 +3,10 @@ para los combates, este programa llevará un conteo de la cantidad de participan
 la cantidad de personas que se encuentran en cada una de las categorías de peso (ligero, welter y pesado). De esta forma,
 se podrá tener un mejor control y manejo de la información cuando haya competencias.
 
+El algoritmo está dividido en partes y todavía no es completamente funcional.
 
-#Entradas
+#Entrada inicial - datos del competidor(nombre, sexo, peso)
+
 nombre = input("¿Cuál es tu nombre? ")
 sexo = input("¿Cuál es tu sexo? ")
 peso = float(input("¿Cuál es tu peso? "))
@@ -23,13 +25,11 @@ pesado_h = []
 capacidad_max = 50
 
 
-
-Mientras x sea menor que capacidad_max
-
 #Agregar elementos a listas:
 #Operadores: ==, >=, <=, and
   #todavía no funciona el if ni el loop
 
+Mientras x sea menor que capacidad_max
 
 si sexo == "mujer":
   agregar(nombre) a participantes_mujeres
@@ -45,7 +45,7 @@ si sexo == "mujer":
     agregar(peso) a pesado_m
 
 sino sexo == "hombre":
-  sino peso < 68:
+  si peso < 68:
     agregar(peso) a ligero_h
   sino peso >= 68 AND < 80:
     agregar (peso) a welter_h
