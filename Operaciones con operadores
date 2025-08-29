@@ -1,0 +1,33 @@
+#Entradas
+  #Input como operador utilizado
+nombre = input("¿Cuál es tu nombre? ")
+sexo = input("¿Cuál es tu sexo? ")
+peso = int(input("¿Cuál es tu pseo? "))
+
+
+#Creación de listas:
+lista_mujer = []
+lista_hombre = []
+capacidad = 10
+
+#Agregar elementos a listas:
+  #Append como operador utilizado
+if sexo == "mujer":
+  lista_mujer.append(nombre, peso)
+else:
+  lista_hombre.append(nombre, peso)
+
+#Ordenar listas
+list.sort(lista_mujer)
+list.sort(lista_hombre)
+
+#Longitud de listas
+m = len(lista_mujer)
+h = len(lista_hombre)
+
+Mientras i sea menor o igual que m
+resultados_mujer = categoria_mujer[i], categoria_mujer[i+1]
+i = i+2
+Mientras j sea menor o igual que h resultados_hombre = categoria_hombre[j], categoria_hombre[j+1] j = j+2
+EF (resultados_mujer, resultados_hombre)
+
