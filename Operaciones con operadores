@@ -39,7 +39,7 @@ else:
 si sexo == "mujer": 
   si peso < 68:
     agregar(peso) a ligero_m
-  sino peso >= 68 and < 80:
+  sino peso >= 68 and peso < 80:
     agregar(peso) a welter_m
   sino peso >= 80:
     agregar(peso) a pesado_m
@@ -47,7 +47,7 @@ si sexo == "mujer":
 sino sexo == "hombre":
   si peso < 68:
     agregar(peso) a ligero_h
-  sino peso >= 68 AND < 80:
+  sino peso >= 68 and peso < 80:
     agregar (peso) a welter_h
   sino peso >= 80:
     agregar(peso) a pesado_h
