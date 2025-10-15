@@ -1,15 +1,3 @@
-#Entrada inicial - datos del competidor(nombre, sexo, peso)
-
-def datos_participante():
-  a = input("¿Cuál es tu nombre? ")
-  b = input("¿Cuál es tu sexo? (mujer/hombre) ").lower()
-  c = float(input("¿Cuál es tu peso? "))
-  return a,b,c
-
-nombre, sexo, peso = datos_participante()
-print(nombre, sexo, peso)
-
-
 #Creación de listas:
 participantes_mujeres = []
 participantes_hombres = []
@@ -19,38 +7,54 @@ welter_m = []
 welter_h = []
 pesado_m = []
 pesado_h = []
-
-capacidad_max = 50
+i = 0
+capacidad_max = 15
 
 
 #Agregar elementos a listas:
 #Operadores: ==, >=, <=, and
-  #todavía no funciona el if ni el loop
 
-Mientras x sea menor que capacidad_max
+while i <= 5:
+    def datos_participante():
+        a = input("¿Cuál es tu nombre? ")
+        b = input("¿Cuál es tu sexo? (mujer/hombre) ").lower()
+        c = float(input("¿Cuál es tu peso? "))
+        return a,b,c
 
-si sexo == "mujer":
-  agregar(nombre) a participantes_mujeres
-else:
-  agregar(nombre) a participantes_hombres
+    nombre, sexo, peso = datos_participante()
+    print(nombre, sexo, peso)
+    if sexo == "mujer":
+      participantes_mujeres.append(nombre)
+    else:
+      participantes_hombres.append(nombre)
 
-si sexo == "mujer": 
-  si peso < 68:
-    agregar(peso) a ligero_m
-  sino peso >= 68 and peso < 80:
-    agregar(peso) a welter_m
-  sino peso >= 80:
-    agregar(peso) a pesado_m
+    if sexo == "mujer": 
+      if peso < 68:
+        ligero_m.append(nombre)
+      elif peso >= 68 and peso < 80:
+        welter_m.append(nombre)
+      elif peso >= 80:
+        pesado_m.append(nombre)
 
-sino sexo == "hombre":
-  si peso < 68:
-    agregar(peso) a ligero_h
-  sino peso >= 68 and peso < 80:
-    agregar (peso) a welter_h
-  sino peso >= 80:
-    agregar(peso) a pesado_h
-
-x = x+1
+    elif sexo == "hombre":
+      if peso < 68:
+        ligero_h.append(nombre)
+      elif peso >= 68 and peso < 80:
+        welter_h.append(nombre)
+      elif peso >= 80:
+        pesado_h.append(nombre)
+    
+    i = i+1
+    
+    
+print("lista de mujeres", participantes_mujeres)
+print("lista de hombres", participantes_hombres)
+print("categoria ligero mujeres", ligero_m)
+print("categoria ligero hombres", ligero_h)
+print("categoria welter mujeres", welter_m)
+print("categoria welter hombres", welter_h)
+print("categoria pesado mujeres", pesado_m)
+print("categoria pesado hombres", pesado_h)
 
 #Cantidad de elementos en las listas
 #operador de suma
@@ -172,4 +176,3 @@ print("Combates totales:", combates_totales())
 
 print("Porcentaje de mujeres:", porcentaje_mujeres())
 print("Porcentaje de mujeres:", porcentaje_hombres())
-
