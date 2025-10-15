@@ -28,17 +28,10 @@ def datos_participante():
     return nombre, sexo, peso
     
 i = 0
-capacidad_max = 15   
+capacidad_max = 10   
 while i <= capacidad_max:
     datos_participante()
     i = i+1
-    
-print("categoria ligero mujeres", participantes["mujer"]["ligero"])
-print("categoria ligero hombres", participantes["hombre"]["ligero"])
-print("categoria welter mujeres", participantes["mujer"]["welter"])
-print("categoria welter hombres", participantes["hombre"]["welter"])
-print("categoria pesado mujeres", participantes["mujer"]["pesado"])
-print("categoria pesado hombres", participantes["hombre"]["pesado"])
 
 #Cantidad de elementos en las listas
 #operador de suma
@@ -135,27 +128,54 @@ def combates_totales():
 def porcentaje_mujeres():
   porcentaje_m = (cantidad_mujeres()*100)/cantidad_participantes()
   porcentaje_m = float(porcentaje_m)
-  return porcentaje_m
+  return ("%.2f" % porcentaje_m)
 
 def porcentaje_hombres():
   porcentaje_h = (cantidad_hombres()*100)/cantidad_participantes()
   porcentaje_h = float(porcentaje_h)
-  return porcentaje_h
+  return ("%.2f" % porcentaje_h)
 
 #Salida
-#EF (num_participantes, num_ligero_total, num_welter_total, num_pesado_total, num_combates_total)
 
-print("Mujeres total:", cantidad_mujeres())
-print("Hombres total:", cantidad_hombres())
+print("Mujeres total:", cantidad_mujeres(), "(",porcentaje_mujeres(),"%)")
+print("Hombres total:", cantidad_hombres(), "(",porcentaje_hombres(),"%)")
 print("Total de participantes:", cantidad_participantes())
 
-print("Participantes categoría ligero:", cantidad_ligero_total())
+print("\nParticipantes categoría ligero:", cantidad_ligero_total())
 print("Participantes categoria welter:", cantidad_welter_total())
 print("Participantes categoria pesado:", cantidad_pesado_total())
 
-print("Combates mujeres:", combates_mujeres())
-print("Combates hombres:", combates_hombres())
+#print("Combates mujeres:", combates_mujeres())
+#print("Combates hombres:", combates_hombres())
 print("Combates totales:", combates_totales())
 
-print("Porcentaje de mujeres:", porcentaje_mujeres())
-print("Porcentaje de mujeres:", porcentaje_hombres())
+#print("Porcentaje de mujeres:", porcentaje_mujeres())
+#print("Porcentaje de mujeres:", porcentaje_hombres())
+
+
+# Crear matrices de combates
+def crear_matriz_combate(lista_participantes):
+    matriz = []
+    i = 0
+    while i < len(lista_participantes) - 1:
+        fila = [lista_participantes[i], lista_participantes[i + 1]]
+        matriz.append(fila)
+        i += 2
+    return matriz
+
+# Crear matrices para cada categoría y sexo
+matriz_ligero_m = crear_matriz_combate(participantes["mujer"]["ligero"])
+matriz_ligero_h = crear_matriz_combate(participantes["hombre"]["ligero"])
+matriz_welter_m = crear_matriz_combate(participantes["mujer"]["welter"])
+matriz_welter_h = crear_matriz_combate(participantes["hombre"]["welter"])
+matriz_pesado_m = crear_matriz_combate(participantes["mujer"]["pesado"])
+matriz_pesado_h = crear_matriz_combate(participantes["hombre"]["pesado"])
+
+# Mostrar las matrices
+print("\nMatrices de combates: ")
+print("Combates ligeros mujeres:", matriz_ligero_m)
+print("Combates ligeros hombres:", matriz_ligero_h)
+print("Combates welter mujeres:", matriz_welter_m)
+print("Combates welter hombres:", matriz_welter_h)
+print("Combates pesado mujeres:", matriz_pesado_m)
+print("Combates pesado hombres:", matriz_pesado_h)
