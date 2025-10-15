@@ -14,19 +14,25 @@ capacidad_max = 15
 #Agregar elementos a listas:
 #Operadores: ==, >=, <=, and
 
-while i <= 5:
+while i <= capacidad_max:
     def datos_participante():
-        a = input("¿Cuál es tu nombre? ")
-        b = input("¿Cuál es tu sexo? (mujer/hombre) ").lower()
-        c = float(input("¿Cuál es tu peso? "))
-        return a,b,c
+        nombre = input("¿Cuál es tu nombre? ")
+        
+        sexo = input("¿Cuál es tu sexo? (mujer/hombre) ").lower()
+        if sexo == "mujer":
+          participantes_mujeres.append(nombre)
+        elif sexo == "hombre":
+          participantes_hombres.append(nombre)
+        else:
+            while sexo != "mujer" and sexo != "hombre":
+                print("Respuesta no válida")
+                sexo = input("¿Cuál es tu sexo? (mujer/hombre) ").lower() 
+        
+        peso = float(input("¿Cuál es tu peso? "))
+        return nombre, sexo, peso
 
     nombre, sexo, peso = datos_participante()
-    print(nombre, sexo, peso)
-    if sexo == "mujer":
-      participantes_mujeres.append(nombre)
-    else:
-      participantes_hombres.append(nombre)
+    #print(nombre, sexo, peso)
 
     if sexo == "mujer": 
       if peso < 68:
