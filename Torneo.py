@@ -13,37 +13,44 @@ Creación de un diccionario donde se pondrán los nombres de
 los competidores:
 """
 
+import random
 
-def datos_participante(diccionario):
+
+def datos_participante(diccionario, capacidad_max):
     """
     Recibe: un diccionario
     Pregunta los datos del competidor y actualiza el diccionario
     Devuelve: el mismo diccionario actualizado con la nueva información
     """
-    agregar = input("¿Quieres agregar un nuevo participante? (si/no) ").lower
-    if agregar == "si":
-        nombre = input("¿Cuál es tu nombre? ")
-        
-        sexo = input("¿Cuál es tu sexo? (mujer/hombre) ").lower()
-        while sexo not in ["mujer", "hombre"]:
-            print("Respuesta no válida")
-            sexo = input("¿Cuál es tu sexo? (mujer/hombre) ").lower() 
-        
-        peso = float(input("¿Cuál es tu peso? "))
+    print("Bienvenido a la Copa Jaguares de Taekwondo 2025")
+    agregar = input("¿Deseas agregar un nuevo participante? (si/no) ").lower()
+    i=0
 
-        if peso < 65:
-            categoria = "ligero"
-        elif peso < 80:
-            categoria = "welter"
+    while agregar == "si":
+        if capacidad_max > i:
+            nombre = input("¿Cuál es tu nombre? ")
+            sexo = input("¿Cuál es tu sexo? (mujer/hombre) ").lower()
+            
+            while sexo not in ["mujer", "hombre"]:
+                print("Respuesta no válida")
+                sexo = input("¿Cuál es tu sexo? (mujer/hombre) ").lower() 
+                
+            peso = float(input("¿Cuál es tu peso? (sólo el número) "))
+
+            if peso < 65:
+                categoria = "ligero"
+            elif peso < 80:
+                categoria = "welter"
+            else:
+                categoria = "pesado"
+            diccionario[sexo][categoria].append(nombre)
+            i = i + 1
+            agregar = input("¿Te gustaría agregar otro participante? (si/no) ").lower()
         else:
-            categoria = "pesado"
-
-    else:
-        return "Lista de participantes cerrada"
-    
-    diccionario[sexo][categoria].append(nombre)
+            agregar = 'no'
+            print('\nUna disculpa has alcanzado la capacidad máxima')
     return diccionario
-
+         
 
 def cantidad_mujeres(diccionario):
     
@@ -95,13 +102,17 @@ def porcentaje_hombres(diccionario):
     return "%.2f" % porcentaje_h
 
 
-def crear_matriz_combate(diccionario):
+def crear_matriz_combate(lista_participantes):
+    random.shuffle(lista_participantes)
     matriz = []
     i = 0
-    while i < len(diccionario) - 1:
-        fila = [diccionario[i], diccionario[i + 1]]
+    while i < len(lista_participantes) - 1:
+        fila = [lista_participantes[i], lista_participantes[i + 1]]
         matriz.append(fila)
         i = i + 2
+        
+    if len(lista_participantes) % 2 != 0:
+        matriz.append([lista_participantes[-1], "descansa"])
     return matriz
 
 
@@ -112,14 +123,11 @@ def main():
         "mujer": {"ligero": [], "welter": [], "pesado": []},
         "hombre": {"ligero": [], "welter": [], "pesado": []}
         }
-
     capacidad_max = 5
-    i = 0
-    while i < capacidad_max:
-        participantes = datos_participante(participantes)
-        i = i + 1
+    participantes = datos_participante(participantes, capacidad_max)
 
-    # Crear matrices
+    """ ---- Creación de Matrices ----- """
+    
     matriz_ligero_m = crear_matriz_combate(participantes["mujer"]["ligero"])
     matriz_ligero_h = crear_matriz_combate(participantes["hombre"]["ligero"])
     matriz_welter_m = crear_matriz_combate(participantes["mujer"]["welter"])
@@ -128,7 +136,7 @@ def main():
     matriz_pesado_h = crear_matriz_combate(participantes["hombre"]["pesado"])
 
     """ ----- Salidas ----- """
-    
+    print("\nDatos Generales")
     print("\nHombres total:", cantidad_hombres(participantes),
           "(", porcentaje_hombres(participantes), "%)")
     print("Mujeres total:", cantidad_mujeres(participantes), "(", porcentaje_mujeres(participantes), "%)")
@@ -139,7 +147,7 @@ def main():
     print("Participantes categoría pesado:", cantidad_pesado_total(participantes))
 
     print("\nMatrices de combates:")
-    print("Combates ligeros mujeres:", matriz_ligero_m)
+    print("\nCombates ligeros mujeres:", matriz_ligero_m)
     print("Combates ligeros hombres:", matriz_ligero_h)
     print("Combates welter mujeres:", matriz_welter_m)
     print("Combates welter hombres:", matriz_welter_h)
@@ -147,6 +155,6 @@ def main():
     print("Combates pesado hombres:", matriz_pesado_h)
 
 
-""" ----- Ejecutar Programa ----- """
+""" ----- Ejecutar el Programa ----- """
 main()
 
