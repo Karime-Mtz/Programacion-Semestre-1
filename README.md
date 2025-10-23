@@ -46,6 +46,12 @@ j = j+2
 
 EF (resultados_mujer, resultados_hombre)
 
+### Biblioteca
+Para este código la biblioteca estándar random fue utilizada, la 
+cual general valores aleatorios o selecciona elementos al azar.
+Su función en el programa es mezclar aleatoriamente el orden de los participantes, 
+para que los combates no sean siempre los mismos.
+
 ### Instrucciones
 Descargar el archivo y correr en terminal con:
 
