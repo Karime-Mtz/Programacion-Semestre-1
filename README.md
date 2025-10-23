@@ -1,4 +1,4 @@
-###Contexto
+### Contexto
 
 De acuerdo al reglamento de Taekwondo de competencia de la CONADE (Comisión Nacional de Cultura Físical y el Deporte) 
 la asignación de combates no se hace de forma aleatoria, sino que se considera el sexo, la cinta y peso del competidor o competidora. 
@@ -11,7 +11,7 @@ combate justa y que su integridad física no sea puesta en riesgo.
 
 Creo que es interesante porque yo hice taekwondo durante 10 años, por lo que es un tema que conozco. Además, me gustaría ver este proceso que vivido tantas veces de forma automatizada.
 
-###Algoritmo:
+### Algoritmo:
 E0 información sobre el competidor (nombre, sexo, peso)
 
 Crear un diccionario:
@@ -33,7 +33,6 @@ Mientras x sea menor que capacidad
   Agregar (nombre) a diccionario en la categoría correcto
 x = x +1
 
-
 m = longitud de lista categoria_mujer
 h = longitud de lista categoria_hombre
 
@@ -47,9 +46,12 @@ j = j+2
 
 EF (resultados_mujer, resultados_hombre)
 
-###Instrucciones
+### Instrucciones
 Descargar el archivo y correr en terminal con:
-  python Torneo.py
+
+    python Torneo.py
+  
 o abrir en Thonny y dar botón de play
+
 Llenar los datos que se preguntan.
 Gracias por su visita
