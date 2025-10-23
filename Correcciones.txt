@@ -1,4 +1,4 @@
-### Correcciones
+Correcciones
 
 Sub-Competencia:
 	componente: usa operadores aritméticos e manera eficaz
