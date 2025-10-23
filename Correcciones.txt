@@ -1,0 +1,13 @@
+### Correcciones
+
+Sub-Competencia:
+	componente: usa operadores aritméticos e manera eficaz
+Error original: no había puesto suficientes operadores aritméticos
+
+Cambio realizado: Agregué operadores aritméticos dentro de varias funciones
+	
+	porcentaje_m = (cantidad_mujeres(diccionario) * 100)
+    	porcentaje_m /= cantidad_participantes(diccionario)
+	
+
+Líneas de código donde se ve la corrección: 151-152, 164-165, 186
